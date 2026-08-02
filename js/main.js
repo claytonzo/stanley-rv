@@ -11,7 +11,8 @@ const ICONS = {
   chip: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="6" width="12" height="12" rx="1.5"/><path d="M9 3v3M15 3v3M9 18v3M15 18v3M3 9h3M3 15h3M18 9h3M18 15h3"/></svg>',
   radio: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="15" r="2"/><path d="M4.9 19.1a10 10 0 0 1 0-14.1M19.1 5a10 10 0 0 1 0 14.1M7.8 16.2a6 6 0 0 1 0-8.4M16.2 7.8a6 6 0 0 1 0 8.4"/></svg>',
   chart: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10M10 20V4M16 20v-7M22 20v-3"/></svg>',
-  home: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11 12 3l9 8"/><path d="M5 10v10h14V10"/></svg>'
+  home: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11 12 3l9 8"/><path d="M5 10v10h14V10"/></svg>',
+  flame: '<svg viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M12 2C8 7 6 10 6 14c0 4.4 2.7 8 6 8s6-3.6 6-8c0-4-2-7-6-12Z"/></svg>'
 };
 
 // ===================== Hotspot data (positions are % of image width/height) =====================
@@ -55,6 +56,11 @@ const HOTSPOTS = [
     x: 28, y: 59, icon: 'camera',
     title: 'Smart & Secure',
     body: 'A camera-based security system arms and disarms itself based on presence, with the whole mesh (Zigbee + Bluetooth sensors) tied together in Home Assistant.'
+  },
+  {
+    x: 66, y: 80, icon: 'flame',
+    title: 'Propane Heat',
+    body: "A built-in propane furnace keeps things warm well below freezing. The tank level is monitored through Home Assistant too, with a low-propane alert before it runs out mid-winter."
   }
 ];
 
@@ -81,6 +87,10 @@ const TECH_CARDS = [
   {
     icon: 'radio', title: 'Zigbee &amp; BLE Sensor Mesh',
     body: 'Propane level, temperature, humidity, and more — a mix of Zigbee and Bluetooth sensors feeding straight into Home Assistant.'
+  },
+  {
+    icon: 'flame', title: 'Propane Monitoring',
+    body: 'A tank-level sensor feeds propane readings straight into Home Assistant, with a low-propane alert — handy once the furnace starts working overtime in winter.'
   },
   {
     icon: 'wifi', title: 'Connectivity',
