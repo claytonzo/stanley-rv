@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Stanley — 2020 Winnebago Travato 59GL, National Park Edition</title>
+<meta name="description" content="Meet Stanley: a 2020 Winnebago Travato 59GL National Park Edition, wired up with a Raspberry Pi, Home Assistant, and a smart home that runs down the highway.">
+
+<meta property="og:title" content="Stanley — a smart-home RV">
+<meta property="og:description" content="A 2020 Winnebago Travato 59GL, National Park Edition, running on Home Assistant. Explore the tech.">
+<meta property="og:image" content="images/stanley-hero.jpg">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🚐</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="bg-glow" aria-hidden="true"></div>
+
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="brand" href="#top">
+      <span class="brand-mark">🚐</span>
+      <span class="brand-name">STANLEY</span>
+    </a>
+    <nav class="site-nav">
+      <a href="#explore">Explore</a>
+      <a href="#smart-home">Smart Home</a>
+      <a href="#specs">Specs</a>
+      <a href="#share">Share</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- ============ HERO ============ -->
+  <section class="hero">
+    <div class="wrap hero-inner">
+      <p class="eyebrow">2020 Winnebago Travato 59GL &middot; National Park Edition</p>
+      <h1>This is <span class="accent-text">Stanley</span>.</h1>
+      <p class="hero-sub">
+        A go-anywhere camper van with a Raspberry Pi for a brain. Off-grid power,
+        BFGoodrich all-terrains, and a Home Assistant setup that keeps working
+        whether we're in the driveway or three bars of Starlink deep in a national forest.
+      </p>
+      <div class="hero-cta">
+        <a href="#explore" class="btn btn-primary">Explore Stanley <span class="arrow">↓</span></a>
+        <a href="#smart-home" class="btn btn-ghost">See the tech stack</a>
+      </div>
+    </div>
+    <div class="scroll-cue" aria-hidden="true"><span></span></div>
+  </section>
+
+  <!-- ============ INTERACTIVE PHOTO ============ -->
+  <section id="explore" class="explore">
+    <div class="wrap">
+      <h2 class="section-title">Tap around and explore</h2>
+      <p class="section-sub">Every glowing dot is a real feature. Hover (or tap on mobile) to find out what it does.</p>
+    </div>
+
+    <div class="photo-stage wrap">
+      <div class="photo-frame" id="photoFrame">
+        <img src="images/stanley-hero.jpg" alt="Stanley, a black 2020 Winnebago Travato 59GL National Park Edition, parked on a city street at dusk with a skyline behind it and a dog looking out the driver's window." id="heroImg">
+        <div class="hotspot-layer" id="hotspotLayer"></div>
+      </div>
+      <div class="photo-caption">Stanley, mid-road-trip &middot; the co-pilot is non-negotiable</div>
+    </div>
+  </section>
+
+  <!-- ============ SMART HOME ============ -->
+  <section id="smart-home" class="smart-home">
+    <div class="wrap">
+      <h2 class="section-title">The smart home that happens to drive</h2>
+      <p class="section-sub">
+        Everything below runs on a Raspberry&nbsp;5 mounted inside Stanley, on
+        <a href="https://www.home-assistant.io/" target="_blank" rel="noopener">Home&nbsp;Assistant</a>,
+        talking to devices over Bluetooth, Zigbee, and Wi-Fi. No cloud dependency required to keep the lights on.
+      </p>
+
+      <div class="card-grid" id="techGrid"></div>
+    </div>
+  </section>
+
+  <!-- ============ MOCK DASHBOARD ============ -->
+  <section class="dashboard-preview">
+    <div class="wrap dashboard-inner">
+      <div class="dashboard-copy">
+        <h2 class="section-title">One dashboard, the whole van</h2>
+        <p class="section-sub">
+          Battery state of charge, propane level, cabin temperature, tire-terrain-ready
+          status &mdash; all in one place, updated live, with history kept in Grafana
+          so we can see trends over an entire trip.
+        </p>
+      </div>
+      <div class="mock-dash" aria-label="Example dashboard, illustrative values">
+        <div class="mock-dash-header">
+          <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
+          <span class="mock-dash-title">stanley &middot; home assistant</span>
+        </div>
+        <div class="mock-dash-grid">
+          <div class="mock-tile">
+            <span class="mock-label">Battery (Volta)</span>
+            <span class="mock-value">87<small>%</small></span>
+            <div class="mock-bar"><div style="width:87%"></div></div>
+          </div>
+          <div class="mock-tile">
+            <span class="mock-label">Cabin Temp</span>
+            <span class="mock-value">71<small>°F</small></span>
+          </div>
+          <div class="mock-tile">
+            <span class="mock-label">Propane</span>
+            <span class="mock-value">62<small>%</small></span>
+            <div class="mock-bar"><div style="width:62%"></div></div>
+          </div>
+          <div class="mock-tile">
+            <span class="mock-label">Connectivity</span>
+            <span class="mock-value ok">Starlink</span>
+          </div>
+        </div>
+        <div class="mock-dash-footnote">example values, for illustration only</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SPECS ============ -->
+  <section id="specs" class="specs">
+    <div class="wrap">
+      <h2 class="section-title">The van itself</h2>
+      <p class="section-sub">Before any of the tech gets bolted on &mdash; the base rig.</p>
+
+      <div class="specs-grid">
+        <div class="spec-group">
+          <h3>Chassis &amp; Drivetrain</h3>
+          <dl>
+            <div><dt>Base</dt><dd>Ram ProMaster 3500</dd></div>
+            <div><dt>Engine</dt><dd>3.6L Pentastar V6, 280&nbsp;hp</dd></div>
+            <div><dt>Transmission</dt><dd>6-speed automatic</dd></div>
+            <div><dt>Fuel tank</dt><dd>24 gal</dd></div>
+          </dl>
+        </div>
+
+        <div class="spec-group">
+          <h3>Dimensions</h3>
+          <dl>
+            <div><dt>Length</dt><dd>21 ft</dd></div>
+            <div><dt>Ext. height</dt><dd>112 in</dd></div>
+            <div><dt>Int. height</dt><dd>75 in (stand-up)</dd></div>
+            <div><dt>GVWR</dt><dd>9,350 lb</dd></div>
+          </dl>
+        </div>
+
+        <div class="spec-group">
+          <h3>Tanks</h3>
+          <dl>
+            <div><dt>Fresh water</dt><dd>18 gal</dd></div>
+            <div><dt>Gray water</dt><dd>15 gal</dd></div>
+            <div><dt>Black water</dt><dd>11 gal</dd></div>
+            <div><dt>Propane</dt><dd>25.4 lb</dd></div>
+          </dl>
+        </div>
+
+        <div class="spec-group">
+          <h3>Living</h3>
+          <dl>
+            <div><dt>Sleeps</dt><dd>4 (double bed + flex sofa bed)</dd></div>
+            <div><dt>Bathroom</dt><dd>Wet bath, shower + toilet</dd></div>
+            <div><dt>Kitchen</dt><dd>2-burner cooktop, fridge, microwave</dd></div>
+            <div><dt>Awning</dt><dd>13 ft power retractable</dd></div>
+          </dl>
+        </div>
+      </div>
+
+      <div class="npe-callout">
+        <h3>National Park Foundation Edition</h3>
+        <p>
+          A limited package built for going further off the pavement: black alloy
+          wheels, BFGoodrich All-Terrain tires, front &amp; rear SumoSprings, a
+          roll-up side screen door, and a 4-module Pure³ Advanced Energy System
+          with portable solar &mdash; the electrical backbone the Home Assistant
+          setup builds on top of. Part of every sale supports the National Park Foundation.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SHARE / QR ============ -->
+  <section id="share" class="share">
+    <div class="wrap share-inner">
+      <div class="share-copy">
+        <h2 class="section-title">Send someone the tour</h2>
+        <p class="section-sub">
+          Scan the code or share the link &mdash; same page, whether it's printed
+          on a sign at a campsite or dropped in a text.
+        </p>
+        <div class="share-link">
+          <code id="shareUrl">https://claytonzo.github.io/stanley-rv/</code>
+          <button id="copyBtn" class="btn btn-ghost btn-small">Copy</button>
+        </div>
+      </div>
+      <div class="qr-card">
+        <img src="images/qr-code.png" alt="QR code linking to this page" width="220" height="220">
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap footer-inner">
+    <span>Stanley &middot; 2020 Winnebago Travato 59GL &middot; National Park Edition</span>
+    <span class="footer-sub">Built with Home Assistant, a Raspberry Pi, and way too much Bluetooth debugging.</span>
+  </div>
+</footer>
+
+<!-- Hotspot tooltip template -->
+<div class="tooltip" id="tooltip" role="dialog" aria-hidden="true">
+  <button class="tooltip-close" id="tooltipClose" aria-label="Close">&times;</button>
+  <div class="tooltip-icon" id="tooltipIcon"></div>
+  <h4 class="tooltip-title" id="tooltipTitle"></h4>
+  <p class="tooltip-body" id="tooltipBody"></p>
+</div>
+
+<script src="js/main.js"></script>
+</body>
+</html>
