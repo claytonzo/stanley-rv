@@ -47,9 +47,9 @@ const HOTSPOTS = [
     body: 'Non-negotiable crew member. Approves all routes.'
   },
   {
-    x: 91, y: 60, icon: 'wifi',
+    x: 39, y: 40, icon: 'wifi',
     title: 'Always Connected',
-    body: "Starlink plus a GL-iNet travel router keep the whole rig online — which means the smart-home dashboards work from a trailhead just as well as the driveway."
+    body: "A roof-mounted Starlink dish plus a GL-iNet travel router keep the whole rig online — which means the smart-home dashboards work from a trailhead just as well as the driveway."
   },
   {
     x: 28, y: 59, icon: 'camera',
