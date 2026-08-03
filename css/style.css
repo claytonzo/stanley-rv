@@ -120,6 +120,14 @@ img { max-width: 100%; display: block; }
   .site-nav a { font-size: 0.82rem; }
 }
 
+@media (max-width: 360px) {
+  .wrap.header-inner { padding: 0 14px; }
+  .brand-name { font-size: 0.85rem; }
+  .brand-mark { font-size: 1.1rem; }
+  .site-nav { gap: 10px; }
+  .site-nav a { font-size: 0.72rem; }
+}
+
 /* ===================== Hero ===================== */
 .hero {
   position: relative;
