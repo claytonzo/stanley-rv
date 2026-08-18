@@ -16,6 +16,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+  integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
 <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -30,6 +32,7 @@
     </a>
     <nav class="site-nav">
       <a href="#explore">Explore</a>
+      <a href="#travels">Map</a>
       <a href="#smart-home">Tech</a>
       <a href="#specs">Specs</a>
       <a href="#share">Share</a>
@@ -70,6 +73,19 @@
         <div class="hotspot-layer" id="hotspotLayer"></div>
       </div>
       <div class="photo-caption">Stanley, mid-road-trip &middot; the co-pilot is non-negotiable</div>
+    </div>
+  </section>
+
+  <!-- ============ TRAVELS ============ -->
+  <section id="travels" class="travels">
+    <div class="wrap">
+      <h2 class="section-title">Everywhere Stanley's been</h2>
+      <p class="section-sub">Drop a pin, see a photo. Tap a marker to jump to the trip.</p>
+    </div>
+    <div class="wrap">
+      <div class="map-frame">
+        <div id="travelMap"></div>
+      </div>
     </div>
   </section>
 
@@ -228,6 +244,8 @@
   <p class="tooltip-body" id="tooltipBody"></p>
 </div>
 
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+  integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
 <script src="js/main.js"></script>
 </body>
 </html>

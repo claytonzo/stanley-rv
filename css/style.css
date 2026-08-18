@@ -121,11 +121,11 @@ img { max-width: 100%; display: block; }
 }
 
 @media (max-width: 360px) {
-  .wrap.header-inner { padding: 0 14px; }
-  .brand-name { font-size: 0.85rem; }
-  .brand-mark { font-size: 1.1rem; }
-  .site-nav { gap: 10px; }
-  .site-nav a { font-size: 0.72rem; }
+  .wrap.header-inner { padding: 0 12px; }
+  .brand-name { font-size: 0.8rem; }
+  .brand-mark { font-size: 1.05rem; }
+  .site-nav { gap: 7px; }
+  .site-nav a { font-size: 0.68rem; }
 }
 
 /* ===================== Hero ===================== */
@@ -372,6 +372,116 @@ section { padding: 90px 0; position: relative; }
 
 @media (max-width: 720px) {
   .tooltip-close { display: block; }
+}
+
+/* ===================== Travels map ===================== */
+.map-frame {
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  border: 1px solid var(--border);
+}
+
+#travelMap {
+  height: 520px;
+  width: 100%;
+  background: var(--surface);
+}
+
+@media (max-width: 640px) {
+  #travelMap { height: 400px; }
+}
+
+.map-empty {
+  position: absolute;
+  inset: 0;
+  z-index: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 24px;
+  color: var(--muted);
+  font-size: 0.92rem;
+  background: color-mix(in srgb, var(--bg) 55%, transparent);
+  pointer-events: none;
+}
+
+.travel-marker {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: rgba(10, 14, 20, 0.55);
+  backdrop-filter: blur(2px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.travel-marker::after {
+  content: "";
+  position: absolute;
+  inset: -4px;
+  border-radius: 50%;
+  border: 1.5px solid var(--accent);
+}
+.travel-marker .dot-core {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 8px 2px rgba(56, 224, 216, 0.8);
+}
+
+.leaflet-popup-content-wrapper {
+  background: var(--surface);
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow);
+}
+.leaflet-popup-tip {
+  background: var(--surface);
+  border: 1px solid var(--border);
+}
+.leaflet-popup-content { margin: 14px 16px; line-height: 1.4; }
+.leaflet-popup-close-button { color: var(--muted) !important; }
+.leaflet-container a.leaflet-popup-close-button:hover { color: var(--accent) !important; }
+.leaflet-control-zoom a {
+  background: var(--surface) !important;
+  color: var(--text) !important;
+  border-color: var(--border) !important;
+}
+.leaflet-control-zoom a:hover { color: var(--accent) !important; }
+.leaflet-control-attribution {
+  background: color-mix(in srgb, var(--bg) 78%, transparent) !important;
+  color: var(--muted) !important;
+}
+.leaflet-control-attribution a { color: var(--muted) !important; }
+
+.travel-popup { width: 220px; max-width: 60vw; }
+.travel-popup img {
+  width: 100%;
+  height: 130px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 8px;
+  display: block;
+}
+.travel-popup h4 {
+  font-family: var(--font-display);
+  font-size: 0.98rem;
+  margin: 0 0 4px;
+}
+.travel-popup .travel-date {
+  font-size: 0.75rem;
+  color: var(--muted);
+  margin-bottom: 6px;
+}
+.travel-popup p {
+  margin: 0;
+  font-size: 0.85rem;
+  color: var(--muted);
 }
 
 /* ===================== Card grid (smart home) ===================== */

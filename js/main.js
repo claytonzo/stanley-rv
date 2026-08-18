@@ -179,6 +179,158 @@ document.addEventListener('keydown', (e) => { if (e.key === 'Escape') hideToolti
 window.addEventListener('scroll', hideTooltip, { passive: true });
 window.addEventListener('resize', hideTooltip);
 
+// ===================== Travels map =====================
+// Add a stop for every place Stanley's parked overnight.
+// See images/travels/README.md for how to add a photo + entry.
+const TRAVELS = [
+  {
+    name: 'Slatington, PA',
+    lat: 40.75142, lng: -75.60456,
+    date: '2025-02-11',
+    photo: 'images/travels/slatington-pa.jpg'
+  },
+  {
+    name: 'Tatamy, PA',
+    lat: 40.73907, lng: -75.25225,
+    date: '2025-05-02',
+    photo: 'images/travels/tatamy-pa.jpg'
+  },
+  {
+    name: 'York County, NE',
+    lat: 40.81337, lng: -97.41703,
+    date: '2025-08-04',
+    photo: 'images/travels/york-county-ne.jpg'
+  },
+  {
+    name: 'Dawson County, NE',
+    lat: 40.80126, lng: -99.7466,
+    date: '2025-08-06',
+    photo: 'images/travels/dawson-county-ne.jpg'
+  },
+  {
+    name: 'Weldona, CO',
+    lat: 40.36301, lng: -103.96874,
+    date: '2025-08-07',
+    photo: 'images/travels/weldona-co.jpg'
+  },
+  {
+    name: 'Boulder, CO',
+    lat: 39.99998, lng: -105.28594,
+    date: '2025-08-13',
+    photo: 'images/travels/boulder-co.jpg'
+  },
+  {
+    name: 'Bar Harbor, ME',
+    lat: 44.43301, lng: -68.2646,
+    date: '2025-10-12',
+    photo: 'images/travels/bar-harbor-me.jpg'
+  },
+  {
+    name: 'Bethlehem, PA',
+    lat: 40.58349, lng: -75.35444,
+    date: '2025-10-27',
+    photo: 'images/travels/bethlehem-pa.jpg'
+  },
+  {
+    name: 'Fulton County, PA',
+    lat: 40.05882, lng: -78.08195,
+    date: '2025-10-29',
+    photo: 'images/travels/fulton-county-pa.jpg'
+  },
+  {
+    name: 'Highlands, NY',
+    lat: 41.38823, lng: -73.96674,
+    date: '2025-12-31',
+    photo: 'images/travels/highlands-ny.jpg'
+  },
+  {
+    name: 'Boston, MA',
+    lat: 42.34676, lng: -71.09924,
+    date: '2026-02-21',
+    photo: 'images/travels/boston-ma.jpg'
+  },
+  {
+    name: 'Worcester, MA',
+    lat: 42.23605, lng: -71.80741,
+    date: '2026-03-15',
+    photo: 'images/travels/worcester-ma.jpg'
+  },
+  {
+    name: 'Brigantine, NJ',
+    lat: 39.39884, lng: -74.37276,
+    date: '2026-03-24',
+    photo: 'images/travels/brigantine-nj.jpg'
+  },
+  {
+    name: 'Outer Banks, NC',
+    lat: 35.81848, lng: -75.56348,
+    date: '2026-03-29',
+    photo: 'images/travels/outer-banks-nc.jpg'
+  },
+  {
+    name: 'Lookout Mountain, TN',
+    lat: 35.00707, lng: -85.34347,
+    date: '2026-04-05',
+    photo: 'images/travels/lookout-mountain-tn.jpg'
+  },
+  {
+    name: 'Eagan, MN',
+    lat: 44.84405, lng: -93.12472,
+    date: '2026-06-14',
+    photo: 'images/travels/eagan-mn.jpg'
+  },
+];
+
+const mapEl = document.getElementById('travelMap');
+if (mapEl && window.L) {
+  const map = L.map(mapEl, {
+    scrollWheelZoom: false,
+    minZoom: 3,
+    maxZoom: 14,
+  }).setView([39.5, -98.35], 4);
+
+  const isDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+  const tileUrl = isDark
+    ? 'https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png'
+    : 'https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png';
+
+  L.tileLayer(tileUrl, {
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions" target="_blank" rel="noopener">CARTO</a>',
+    subdomains: 'abcd',
+    maxZoom: 19,
+  }).addTo(map);
+
+  const travelIcon = L.divIcon({
+    className: 'travel-marker-wrap',
+    html: '<span class="travel-marker"><span class="dot-core"></span></span>',
+    iconSize: [22, 22],
+    iconAnchor: [11, 11],
+    popupAnchor: [0, -14],
+  });
+
+  TRAVELS.forEach(stop => {
+    const popupHtml = `
+      <div class="travel-popup">
+        ${stop.photo ? `<img src="${stop.photo}" alt="Stanley at ${stop.name}" loading="lazy">` : ''}
+        <h4>${stop.name}</h4>
+        ${stop.date ? `<div class="travel-date">${stop.date}</div>` : ''}
+        ${stop.caption ? `<p>${stop.caption}</p>` : ''}
+      </div>
+    `;
+    L.marker([stop.lat, stop.lng], { icon: travelIcon }).addTo(map).bindPopup(popupHtml);
+  });
+
+  if (TRAVELS.length === 0) {
+    const empty = document.createElement('div');
+    empty.className = 'map-empty';
+    empty.textContent = 'No pins yet — first trip coming soon.';
+    mapEl.parentElement.appendChild(empty);
+  } else if (TRAVELS.length > 1) {
+    const bounds = L.latLngBounds(TRAVELS.map(s => [s.lat, s.lng]));
+    map.fitBounds(bounds.pad(0.3));
+  }
+}
+
 // ===================== Render tech cards =====================
 const grid = document.getElementById('techGrid');
 TECH_CARDS.forEach(c => {
