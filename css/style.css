@@ -393,6 +393,10 @@ section { padding: 90px 0; position: relative; }
   #travelMap { height: 400px; }
 }
 
+.map-dark .leaflet-tile-pane {
+  filter: invert(1) hue-rotate(180deg) brightness(0.95) contrast(0.9);
+}
+
 .map-empty {
   position: absolute;
   inset: 0;

@@ -289,14 +289,16 @@ if (mapEl && window.L) {
     maxZoom: 14,
   }).setView([39.5, -98.35], 4);
 
+  // Standard OSM raster tiles — no API key required, unlike CARTO's basemap
+  // service (their free anonymous tile endpoint now returns a watermark).
+  // There's no official dark style for these, so dark mode is faked with a
+  // CSS filter on the tile pane (see .map-dark in style.css).
   const isDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-  const tileUrl = isDark
-    ? 'https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png'
-    : 'https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png';
+  if (isDark) mapEl.classList.add('map-dark');
 
-  L.tileLayer(tileUrl, {
-    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions" target="_blank" rel="noopener">CARTO</a>',
-    subdomains: 'abcd',
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap</a> contributors',
+    subdomains: 'abc',
     maxZoom: 19,
   }).addTo(map);
 
