@@ -279,6 +279,14 @@ const TRAVELS = [
     date: '2026-06-14',
     photo: 'images/travels/eagan-mn.jpg'
   },
+  {
+    name: 'Waukesha, WI',
+    lat: 43.01156, lng: -88.23164
+  },
+  {
+    name: 'West Dundee, IL',
+    lat: 42.09808, lng: -88.28286
+  },
 ];
 
 const mapEl = document.getElementById('travelMap');
